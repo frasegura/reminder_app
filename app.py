@@ -18,7 +18,7 @@ def create_reminder():
             return jsonify({"error": f"{field} is required"}), 400
         
     db_manager.create_reminder(
-        data["email_to"],
+        data["email_to"].strip(),
         data["subject"],
         data["message"],
         data["send_at"]
