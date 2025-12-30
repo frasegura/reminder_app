@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Reminder App</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <h1>Never miss a reminder</h1>
+        <p>Set up automated emails and let the system handle the sending for you.</p>
+        <h3>Create reminder</h3>
+
+        <form method="POST" action="/reminders">
+            <input type="email" name="email_to" placeholder="Recipient email address" required>
+            <input type="text" name="subject" placeholder="Subject" required>
+            <textarea name="message" placeholder="Message"></textarea>
+            <input type="datetime-local" name="send_at" required>
+            <button type="submit">Create reminder</button>
+        </form>
+    </body>
+</html>
