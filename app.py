@@ -1,0 +1,32 @@
+from flask import Flask, jsonify,request
+from db import DB_Manager
+
+app = Flask(__name__)
+db_manager = DB_Manager()
+
+@app.route("/health" , methods = ["GET"])
+def get_health():
+    return {"status":"ok"}
+
+@app.route("/reminders" , methods = ["POST"])
+def create_reminder():
+    data = request.json
+    required_fields = ["email_to", "subject", "message", "send_at"]
+
+    for field in required_fields:
+        if not data.get(field):
+            return jsonify({"error": f"{field} is required"}), 400
+        
+    db_manager.create_reminder(
+        data["email_to"],
+        data["subject"],
+        data["message"],
+        data["send_at"]
+    )
+
+    return jsonify({"Message":"Reminder created"}),201
+
+
+
+if __name__ == "__main__":
+    app.run(host = "localhost", port=8000, debug=True)
