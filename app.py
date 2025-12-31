@@ -1,16 +1,21 @@
-from flask import Flask, jsonify,request
+from flask import Flask, jsonify,request,render_template
 from db import DB_Manager
 
 app = Flask(__name__)
 db_manager = DB_Manager()
 
+@app.route("/")
+def home():
+    return render_template("index.html")
+
 @app.route("/health" , methods = ["GET"])
 def get_health():
-    return {"status":"ok"}
+    return jsonify({"status": "ok"})
 
 @app.route("/reminders" , methods = ["POST"])
 def create_reminder():
-    data = request.json
+    data = request.form if request.form else request.json
+    
     required_fields = ["email_to", "subject", "message", "send_at"]
 
     for field in required_fields:
