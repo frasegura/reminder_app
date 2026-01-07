@@ -50,7 +50,16 @@ class DB_Manager():
 
             conn.commit()
         
-    
+    def get_all_reminders(self):
+        with self._get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+                            SELECT email_to, subject, send_at, sent FROM reminders ORDER BY send_at DESC
+                            """)
+            rows = cursor.fetchall()
+        return rows
+
+
 
 
 

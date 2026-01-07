@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>List of reminders</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'styles.css') }}">
+        <link rel="stylesheet" href="/static/styles.css">
+    </head>
+    <body>
+        <div class="main-table-container">
+            <h1>Your reminders</h1>
+            <div class="table-container">
+                <table border="1" cellpadding="8">
+                    <thead>
+                        <tr>
+                            <th>Email</th>
+                            <th>Subject</th>
+                            <th>Send at</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in reminders %}
+                        <tr>
+                            <td>{{ row[0] }}</td>
+                            <td>{{ row[1] }}</td>
+                            <td>{{ row[2] }}</td>
+                            <td>
+                                {% if row[3] == 1 %}
+                                    🟢Sent
+                                {% else %}
+                                    🟡Pending
+                                {% endif %}
+                            </td>               
+                        </tr>
+                        {% endfor %}
+                    </tbody>     
+                </table>
+            </div>
+            <a href="{{ url_for('home') }}">Create another reminder</a>
+        </div>
+    </body>
+</html>

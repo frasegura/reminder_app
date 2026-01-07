@@ -1,4 +1,4 @@
-from flask import Flask, jsonify,request,render_template
+from flask import Flask, jsonify,request,render_template,redirect,url_for
 from db import DB_Manager
 
 app = Flask(__name__)
@@ -29,7 +29,23 @@ def create_reminder():
         data["send_at"]
     )
 
+
+    if request.form:
+        return redirect(url_for("success"))
     return jsonify({"Message":"Reminder created"}),201
+
+
+@app.route("/reminders", methods = ["GET"])
+def list_reminders():
+    reminders = db_manager.get_all_reminders()
+    return render_template("reminders.html", reminders= reminders)
+
+
+@app.route("/success" , methods =["GET"])
+def success():
+    return render_template("success.html")
+
+
 
 
 

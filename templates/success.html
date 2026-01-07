@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Success Page</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'styles.css') }}">
+        <link rel="stylesheet" href="/static/styles.css">
+    </head>
+    <body>
+
+        <div class="main-container">
+            <div id="span-container">
+                <span>&#9989</span>
+            </div>
+            <div class="center-container">
+                <h1>Reminder created successfully</h1>
+                <p id="p-msg">Your email will be sent at the scheduled time</p>
+            </div>
+            <div class="center-container"><a href="{{ url_for('home') }}">Create another reminder</a></div>
+        </div>
+    </body>
+
+</html>

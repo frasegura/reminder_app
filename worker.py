@@ -2,6 +2,9 @@ import os
 import resend
 from db import DB_Manager
 
+
+print("RESEND_API_KEY:", os.getenv("RESEND_API_KEY"))
+
 db_manager = DB_Manager()
 resend.api_key = os.getenv("RESEND_API_KEY")
 

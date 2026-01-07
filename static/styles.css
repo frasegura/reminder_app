@@ -1,16 +1,18 @@
 body {
   /* background-color: rgb(199, 209, 219); */
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: sans-serif;
   max-width: 600px;
   margin: 40px auto;
 }
 
 h1 {
-  font-size: 29px;
+  font-size: 25px;
+  font-weight: lighter;
 }
 input,
 textarea,
-button {
+button,
+p {
   width: 100%;
   margin: 10px 0;
   padding: 9px;
@@ -20,4 +22,76 @@ button {
   color: white;
   cursor: pointer;
   border: none;
+}
+
+a {
+  color: rgb(12, 11, 11);
+  text-decoration: none;
+  border: 2px solid black;
+  border-radius: 5px;
+  height: 35px;
+  width: 15rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Success page */
+
+.main-container {
+  background-color: rgb(243, 247, 247);
+  border-radius: 2%;
+  #span-container {
+    /* border: 5px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    span {
+      font-size: 50px;
+    }
+  }
+}
+
+.center-container {
+  /* border: 5px solid red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  #p-msg {
+    color: rgb(73, 70, 70);
+    text-align: center;
+  }
+}
+
+/* Reminders */
+/* Tables */
+.main-table-container {
+  background-color: rgb(243, 247, 247);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.table-container table {
+  border: 2px solid #f5f4f4;
+  border-collapse: collapse;
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 25px;
+}
+
+.table-container th,
+.table-container td {
+  padding: 10px 14px;
+  text-align: left;
+}
+
+.table-container thead {
+  background-color: #777c7cfb;
+  color: white;
 }
