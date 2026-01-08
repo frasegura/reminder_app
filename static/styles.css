@@ -36,6 +36,15 @@ a {
   align-items: center;
 }
 
+.header {
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
+  padding: 30px;
+}
+
 /* Success page */
 
 .main-container {

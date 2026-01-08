@@ -7,7 +7,10 @@
         <link rel="stylesheet" href="/static/styles.css">
     </head>
     <body>
-        <h1>Never miss a reminder</h1>
+        <div class="header">
+            <h1>Never miss a reminder</h1>
+            <h1><a href="{{ url_for('list_reminders') }}">Go to my reminders</a></h1>
+        </div>
         <p>Set up automated emails and let the system handle the sending for you.</p>
         <h3>Create reminder</h3>
 
